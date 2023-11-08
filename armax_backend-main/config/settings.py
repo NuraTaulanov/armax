@@ -25,8 +25,9 @@ SECRET_KEY = 'django-insecure-u=qa&ickte)_e+j2!aeuz@dyf)98lj@w9g===*h^-by46ev@3b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ["*"]
-ALLOWED_HOSTS = ["https://0378-93-171-66-247.ngrok-free.app",'0378-93-171-66-247.ngrok-free.app','127.0.0.1','localhost']
+ALLOWED_HOSTS = ['*']
+
+# ALLOWED_HOSTS = ["https://ab74-178-89-14-252.ngrok-free.app",'127.0.0.1','localshost',]
 
 
 
@@ -61,7 +62,9 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -69,6 +72,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
             ],
         },
     },
@@ -96,8 +100,7 @@ DATABASES = {
 }
 
 
-# Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -127,15 +130,10 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
-
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'static'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -145,5 +143,13 @@ REST_FRAMEWORK = {
     ),
 }
 
-TELEGRAM_BOT_TOKEN = '6551336776:AAGuSs3KOsUo0RIPHlaSlUWiRyx0sm4kkC8'
-WEBHOOK_URL = "https://0378-93-171-66-247.ngrok-free.app/webhook/"
+TELEGRAM_BOT_TOKEN = '6784705707:AAHmgFZ1GwvAZ443DNWd4fgT3s1O3sXkySI'
+WEBHOOK_URL = "https://n6husl855qwf.share.zrok.io"
+
+
+
+TWILIO_ACCOUNT_SID = 'ACd08785e0c25b0e92874b95a3c2801302'
+TWILIO_AUTH_TOKEN = 'ad8b044b526c7a0d950359798c3bb403'
+TWILIO_NUMBER = 'whatsapp:+14155238886'
+WHATSAPP_NUMBER = 'whatsapp:+77056054308'
+
