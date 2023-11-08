@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'import_export',
     'request',
     'botapp',
-    'whatsapp_bot'
+    # 'whatsapp_bot'
 ]
 
 MIDDLEWARE = [
@@ -85,21 +85,19 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
     # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': os.environ.get('POSTGRES_NAME'),
-    #     'USER': os.environ.get('POSTGRES_USER'),
-    #     'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-    #     'HOST': os.environ.get('POSTGRES_HOST'),
-    #     'PORT': '5432',
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get('POSTGRES_NAME'),
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': os.environ.get('POSTGRES_HOST'),
+        'PORT': '5432',
+    }
 }
-
-
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -129,9 +127,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
 
 
@@ -143,9 +139,8 @@ REST_FRAMEWORK = {
     ),
 }
 
-TELEGRAM_BOT_TOKEN = '6784705707:AAHmgFZ1GwvAZ443DNWd4fgT3s1O3sXkySI'
-WEBHOOK_URL = "https://n6husl855qwf.share.zrok.io"
-
+TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
+WEBHOOK_URL = os.environ.get("WEBHOOK_URL")
 
 
 TWILIO_ACCOUNT_SID = 'ACd08785e0c25b0e92874b95a3c2801302'

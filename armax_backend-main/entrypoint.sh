@@ -12,5 +12,7 @@ then
 fi
 
 python manage.py migrate
+python manage.py collectstatic
+gunicorn --workers=8 --error-logfile '-' --access-logfile '-' --access-logformat '%(t)s "%(r)s" %(s)s %(b)s' config.wsgi:application --bind 0.0.0.0:8000
 
 exec "$@"
